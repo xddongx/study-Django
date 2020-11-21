@@ -8,6 +8,7 @@ from .models import Bookmark
 # generic view를 이용한 모델을 리스트 방식으로 불러온다
 class BookmarkLV(ListView):
     model = Bookmark
+    paginate_by = 6             # 한 페이지에 출력할 갯수
 
 # generic view를 이용한 모델에 데이터 생성
 class BookmarkCV(CreateView):

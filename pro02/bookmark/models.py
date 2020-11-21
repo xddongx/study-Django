@@ -14,5 +14,5 @@ class Bookmark(models.Model):
 
     # 수정이 완료된 후 이동할 페이지 success_url or 모델에 get_absolute_url
     def get_absolute_url(self):
-        return reverse('detail', args=['str(self.id'])
+        return reverse('detail', args=[str(self.id)])
 

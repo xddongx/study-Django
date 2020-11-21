@@ -1,15 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Bookmark Delete</title>
-</head>
-<body>
-<!--삭제할 때는 확인이 필요하기 때문에 confirm_delete라는 이름을 사용한다.-->
-<form action="" method="post">
-    {%csrf_token%}
-    <div class="alert alert-danger">Do you want to delete Bookmark "{{object}}"?</div>
-    <input type="submit" value="Delete" class="btn btn-danger">
-</form>
-</body>
-</html>
+{% extends 'base.html' %}
+{% block title %}Confirm Delete{% endblock %}
+{% block content %}
+    <!--삭제할 때는 확인이 필요하기 때문에 confirm_delete라는 이름을 사용한다.-->
+    <form action="" method="post">
+        {%csrf_token%}
+        <div class="alert alert-danger">Do you want to delete Bookmark "{{object}}"?</div>
+        <input type="submit" value="Delete" class="btn btn-danger">
+    </form>
+{% endblock %}
