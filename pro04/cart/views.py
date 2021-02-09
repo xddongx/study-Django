@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.decorators.http import require_POST
-from ..shop.models import Product
+from shop.models import Product
 from .forms import AddProductForm
 from .cart import Cart
 @require_POST
