@@ -11,7 +11,6 @@
         <div class="col">
             <h1 class="display-6">{{product.name}}</h1>
             <p><span class="badge badge-secondary">Price</span>{{product.price}}</p>
-
             <form action="{% url 'cart:product_add' product.id %}" method="post">{% csrf_token %}
                 {{add_to_cart}}
                 <input type="submit" class="btn btn-primary btn-sm" value="Add to Cart">
