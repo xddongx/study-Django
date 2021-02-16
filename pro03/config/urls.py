@@ -17,11 +17,20 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
+from rest_framework import routers
+from accounts.views import AccountViewSet
+from photo.views import PhotoViewSet
+
+router = routers.DefaultRouter()
+router.register('photo-api', PhotoViewSet)
+router.register('accounts-api', AccountViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('photo.urls')),
     path('accounts/', include('accounts.urls')),
+    path('api/', include(router.urls)),
+    path('api-auth/', include('rest_framework.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

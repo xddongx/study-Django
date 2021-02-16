@@ -4,6 +4,8 @@ from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from config.serializers import PhotoSerializer
+from rest_framework import viewsets
 
 class PhotoUploadView(LoginRequiredMixin, CreateView):
     model = Photo
@@ -33,3 +35,7 @@ class PhotoUpdateView(LoginRequiredMixin, UpdateView):
 def photo_list(request):
     photos = Photo.objects.all()
     return render(request, 'photo/list.html', {'photos':photos})
+
+class PhotoViewSet(viewsets.ModelViewSet):
+    queryset = Photo.objects.all()
+    serializer_class = PhotoSerializer

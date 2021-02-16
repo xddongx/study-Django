@@ -1,5 +1,8 @@
 from django.shortcuts import render
 from .forms import RegisterForm
+from config.serializers import RegisterSerializer
+from rest_framework import viewsets
+from django.contrib.auth.models import User
 
 def register(request):
     if request.method == 'POST':
@@ -12,3 +15,7 @@ def register(request):
     else:
         user_form = RegisterForm()
     return render(request, 'registration/register.html', {'form':user_form})
+
+class AccountViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = RegisterSerializer
