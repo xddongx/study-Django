@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'photo',
     'accounts',
     'rest_framework',
+    'channels',
 ]
 
 MIDDLEWARE = [
@@ -74,8 +75,11 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'config.wsgi.application'
+# WSGI_APPLICATION = 'config.wsgi.application'
 
+# /server/settings.py
+ROOT_URLCONF = 'config.urls'
+ASGI_APPLICATION = 'config.routing.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
