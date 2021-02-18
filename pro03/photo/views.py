@@ -7,6 +7,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from config.serializers import PhotoSerializer
 from rest_framework import viewsets
 
+
 class PhotoUploadView(LoginRequiredMixin, CreateView):
     model = Photo
     fields = ['photo', 'text']

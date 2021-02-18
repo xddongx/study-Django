@@ -4,6 +4,7 @@ from config.serializers import RegisterSerializer
 from rest_framework import viewsets
 from django.contrib.auth.models import User
 
+
 def register(request):
     if request.method == 'POST':
         user_form = RegisterForm(request.POST)

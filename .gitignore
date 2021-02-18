@@ -6,3 +6,4 @@ venv/
 *.pyc
 .idea/
 conn_Mysql.py
+mysql_info.py
